@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #F7F8FA;
+  --ink: #0F172A;
+  --muted: #7A8699;
+  --muted-2: #64748B;
+
+  --card-border: #E6E9EF;
+  --divider: #D9DEE7;
+
+  --note-bg: #EDF0F5;
+  --note-text: #54607A;
+  --note-heading: #1E293B;
+  --bullet: #8B96A8;
+  --good-text: #0B7A55;
+  --bad-text: #C0392B;
+
+  --tint-good-bg: #F0FDF6;
+  --tint-good-border: #C6EBD6;
+  --tint-bad-bg: #FDECEC;
+  --tint-bad-border: #F6C6C6;
+  --tint-warn-bg: #FEF9E9;
+  --tint-warn-border: #F2E4B4;
+
+  --stage-1-border: #0E9F6E;
+  --stage-1-bg: #EDFBF3;
+  --stage-1-badge: #0B7A55;
+
+  --stage-2-border: #3B6FE0;
+  --stage-2-bg: #EEF4FE;
+  --stage-2-badge: #2B5BD0;
+
+  --stage-3-border: #7C4DE8;
+  --stage-3-bg: #F2EEFD;
+  --stage-3-badge: #5B21B6;
+
+  --stage-4-border: #101B33;
+  --stage-4-bg: #FFFFFF;
+  --stage-4-badge: #101B33;
+
+  --month-august: #0B7A55;
+  --month-july: #2B4BD0;
+  --month-june: #5B21B6;
+  --month-may: #101B33;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Onest', system-ui, sans-serif;
+  color: var(--ink);
+}
+
+a { color: #4F46E5; text-decoration: none; }
+a:hover { color: #3730A3; }
+
+.funnel-page {
+  min-height: 100%;
+  padding: 34px 40px 60px;
+}
+
+.funnel-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+
+.funnel-header {
+  margin-bottom: 26px;
+}
+
+.funnel-header h1 {
+  font: 800 27px/1.15 'Onest', sans-serif;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.funnel-header p {
+  font: 400 14px/1.4 'Onest', sans-serif;
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+
+/* ── Stage row ────────────────────────────────────────── */
+
+.stage-row {
+  display: grid;
+  grid-template-columns: 96px repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.stage-cell {
+  display: flex;
+  align-items: center;
+}
+
+.stage-chip {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 15px;
+  border: 1.5px solid;
+  border-radius: 11px;
+  box-sizing: border-box;
+}
+
+.stage-badge {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 999px;
+  color: #fff;
+  font: 700 12px/22px 'Onest', sans-serif;
+  text-align: center;
+}
+
+.stage-label {
+  font: 700 9.5px/1 'Onest', sans-serif;
+  letter-spacing: .09em;
+}
+
+.stage-title {
+  font: 700 15px/1.3 'Onest', sans-serif;
+  color: var(--ink);
+  margin-top: 3px;
+}
+
+.stage-arrow {
+  width: 24px;
+  text-align: center;
+  font: 400 15px/1 'Onest', sans-serif;
+  color: #B6BECD;
+}
+
+/* ── Month section ────────────────────────────────────── */
+
+.month-section {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.month-section:last-child {
+  margin-bottom: 0;
+}
+
+.month-line {
+  position: absolute;
+  inset-inline-start: 35px;
+  top: 44px;
+  width: 1px;
+  background: var(--divider);
+}
+
+.month-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+}
+
+.month-tick {
+  width: 3px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.month-heading span {
+  font: 700 14px/1 'Onest', sans-serif;
+  color: var(--ink);
+}
+
+/* ── Week row ─────────────────────────────────────────── */
+
+.week-row {
+  display: grid;
+  grid-template-columns: 96px repeat(4, minmax(0, 1fr));
+  gap: 9px 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.week-row:last-child {
+  margin-bottom: 0;
+}
+
+.week-date-cell {
+  position: relative;
+  z-index: 1;
+}
+
+.week-date {
+  display: inline-flex;
+  padding: 5px 9px;
+  border-radius: 6px;
+  color: #fff;
+  font: 700 11px/1.1 'Onest', sans-serif;
+}
+
+.metric-card {
+  padding: 13px 16px;
+  border: 1px solid;
+  border-radius: 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  box-sizing: border-box;
+  background: #fff;
+  border-color: var(--card-border);
+}
+
+.metric-card--good {
+  background: var(--tint-good-bg);
+  border-color: var(--tint-good-border);
+}
+
+.metric-card--bad {
+  background: var(--tint-bad-bg);
+  border-color: var(--tint-bad-border);
+}
+
+.metric-card--warn {
+  background: var(--tint-warn-bg);
+  border-color: var(--tint-warn-border);
+}
+
+.metric-value {
+  font: 800 20px/1.2 'Onest', sans-serif;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.metric-label {
+  font: 500 13px/1.2 'Onest', sans-serif;
+  color: var(--muted-2);
+}
+
+/* ── Notes panel ──────────────────────────────────────── */
+
+.week-notes {
+  grid-column: 2 / -1;
+  background: var(--note-bg);
+  border-radius: 8px;
+  padding: 11px 15px 13px;
+  font: 400 13px/1.5 'Onest', sans-serif;
+  color: var(--note-text);
+}
+
+.week-notes-heading {
+  font-weight: 700;
+  color: var(--note-heading);
+}
+
+.week-notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.note-item {
+  display: flex;
+  gap: 8px;
+}
+
+.note-item > .bullet {
+  color: var(--bullet);
+}
+
+.note-label--good {
+  color: var(--good-text);
+  font-weight: 700;
+}
+
+.note-label--bad {
+  color: var(--bad-text);
+  font-weight: 700;
+}
+
+.note-subs {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 3px;
+}
+
+.note-sub {
+  display: flex;
+  gap: 8px;
+  padding-inline-start: 22px;
+}
+
+.note-sub > .bullet {
+  color: var(--bullet);
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  .funnel-page {
+    padding: 24px 16px 40px;
+  }
+
+  .stage-row,
+  .week-row {
+    grid-template-columns: 1fr;
+  }
+
+  .week-date-cell {
+    margin-bottom: 2px;
+  }
+
+  .month-line {
+    display: none;
+  }
+
+  .stage-arrow {
+    display: none;
+  }
+
+  .week-notes {
+    grid-column: 1 / -1;
+  }
+}
